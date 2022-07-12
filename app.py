@@ -6,15 +6,18 @@ from dash import dcc
 import plotly.graph_objs as go
 
 ########### Define your variables
-beers=['Chesapeake Stout', 'Snake Dog IPA', 'Imperial Porter', 'Double Dog IPA']
-ibu_values=[35, 60, 85, 75]
-abv_values=[5.4, 7.1, 9.2, 4.3]
-color1='darkred'
-color2='orange'
-mytitle='Beer Comparison'
+states=['California', 'Texas', 'Florida', 'New York','Pennsylvania','Alaska', 'Montana' , 'New Mexico']
+#Size values
+s_values=[163694.74, 268596.46, 65757.70, 54554.98, 46054.34, 665384.04, 147039.71 , 121590.30]
+#Population values
+p_values=[39237836, 29527941, 21781128, 19835913, 12964056, 732673, 1104271, 2115877]
 
-label1='IBU'
-label2='ABV'
+color1='green'
+color2='blue'
+mytitle='Size vs Population comparison of top 5 biggest and most populous states'
+
+label1='Size'
+label2='Population'
 
 ########### Set up the chart
 
@@ -45,6 +48,6 @@ def make_that_cool_barchart(beers, ibu_values, abv_values, color1, color2, mytit
 ######### Run the function #######
 
 if __name__ == '__main__':
-    fig = make_that_cool_barchart(beers, ibu_values, abv_values, color1, color2, mytitle)
-    fig.write_html('docs/barchart.html')
+    fig = make_that_cool_barchart(states, s_values, p_values, color1, color2, mytitle)
+    fig.write_html('docs/state_stats.html')
     print('We successfully updated the barchart!')
